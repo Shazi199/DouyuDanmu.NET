@@ -34,7 +34,11 @@ namespace DouyuDanmu
                     string key = pair.Substring(0, pos);
                     string value = pair.Substring(pos + 2);
 
-                    dict.Add(Descape(key), Descape(value));
+                    string descapedKey = Descape(key);
+                    if (!dict.ContainsKey(descapedKey))
+                    {
+                        dict.Add(descapedKey, Descape(value));
+                    }
                 }
             }
 
